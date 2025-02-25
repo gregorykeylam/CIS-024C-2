@@ -15,7 +15,7 @@ import json
 #
 
 # relative path
-pathToFile = "./birthday/birthday.json"
+pathToFile = "./src/Birthday.json"
 
 
 # try to open a file and throw a error if it is not found
