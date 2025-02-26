@@ -48,10 +48,19 @@ for elem in birthdayList:
 #print("Jocelyn Jones's birthday is: " + birthdayDictionary["Jocelyn Jones"])
 
 # to get user input
-name = input("Enter a name:")
-print("name = " + name)
+search = input("Enter a name:")
+print("name = " + search)
 
-if name in birthdayDictionary:
-    print (birthdayDictionary[name])
-else:
-    print (name + "is NOT")
+print ("==================")
+
+MatchCount = 0
+
+for key in birthdayDictionary:
+    if search.lower() in key.lower():
+    #if search in key:
+        print (key + "  -  " + birthdayDictionary[key])
+        MatchCount += 1
+print ("Match Count:  " + str(MatchCount))
+
+if MatchCount == 0:
+    print ("Lupe does NOT have any friend that matches the name \"" + search + "\"")
