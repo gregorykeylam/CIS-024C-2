@@ -1,4 +1,10 @@
-# Gabriel Solomon, 2020
+"""
+Filename: HelloWorld.py
+Author: Gregory Lam
+Created: March 2, 2025
+Description: A program that prints "hello world" and python version it is running on.
+"""
+
 
 import json
 
@@ -48,19 +54,24 @@ for elem in birthdayList:
 #print("Jocelyn Jones's birthday is: " + birthdayDictionary["Jocelyn Jones"])
 
 # to get user input
-search = input("Enter a name:")
-print("name = " + search)
 
-print ("==================")
+search = input("\nEnter a name to be search:  ")
 
+Match = {}
 MatchCount = 0
 
 for key in birthdayDictionary:
     if search.lower() in key.lower():
-    #if search in key:
-        print (key + "  -  " + birthdayDictionary[key])
+        Match[key] = birthdayDictionary[key]
         MatchCount += 1
-print ("Match Count:  " + str(MatchCount))
 
 if MatchCount == 0:
-    print ("Lupe does NOT have any friend that matches the name \"" + search + "\"")
+    print (f'\nNone of the name matches "{search}"\n')
+else:    
+    print (f'\n{MatchCount} friend(s) matches the name "{search}"\n')
+    print ("-"*30,"     ","-"*15)
+    print (f'{"Name":<30}',"     ",f'{"Birthday"}')
+    print ("-"*30,"     ","-"*15)
+    for key in Match:
+        print (f'{key:<30}',"     ",f'{Match[key]}')
+    print ()
