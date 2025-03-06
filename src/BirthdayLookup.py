@@ -1,70 +1,55 @@
 """
-Filename: HelloWorld.py
+Filename: BirthdayLookup.py
 Author: Gregory Lam
-Created: March 2, 2025
-Description: A program that prints "hello world" and python version it is running on.
+Created: March 5, 2025
+Description: A program that help Lupe keep track of all of her friends' birthday.
 """
 
-
+# Import statements
 import json
 
-#
-# this is a relative path to the .json data file
-# you can also use a "full" or "absolute path" to the file
-# windows and mac paths are different.  You should google and youttube to learn about paths if you are
-# not familiar with them.  They are important fundamental computer concepts.
-#
-# this is a full windows path, note the forward slashes "/" used in python
-# pathToFile = "E:/Users/jerome/GitHub/evc-cit134a-python/birthday/birthday.json"
-#
-# mac (which is built on linux) and linux paths are like this: "a/b/c/d/e/f.json"
-#
+# Relative path to the data file
+pathToFile = "../misc/Birthday.json"
 
-# relative path
-pathToFile = "./src/Birthday.json"
-
-
-# try to open a file and throw a error if it is not found
+# Try to open the file specified and throw an error if it can't
 try:
     jsonFile = open(pathToFile, 'r')
 except OSError:
     print("ERROR: Unable to open the file %s" % pathToFile)
+    print(f'ERROR: Unable to open the file "{pathToFile}"')
 
-
-# read the whole json file into a variable
+# Read the whole json file into a variable
 birthdayList = json.load(jsonFile)
 
-# create an empty dictionary
+# Create an empty dictionary
 birthdayDictionary = {}
 
-# loop json list of data and put each name and birthday into a dictionary
+# Loop through the json list and put each name and birthday into a dictionary
 for elem in birthdayList:
 
-    # fetch name and birthday
+    # Fetch name and birthday
     name = elem["name"]
     birthday = elem["birthday"]
 
-   #print("name = " + name)
-   #print("birthday = " + birthday)
- 
+    # Add each name and birthday into dictionary
     birthdayDictionary[name] = birthday
 
-
-# to print a value in the dictionary by giving it a string with the name as the key
-#print("Jocelyn Jones's birthday is: " + birthdayDictionary["Jocelyn Jones"])
-
-# to get user input
-
+# Get user input
 search = input("\nEnter a name to be search:  ")
 
+# Create varibles to store results
 Match = {}
 MatchCount = 0
 
+# Store entry that matches user input (if any) in a second dictionary 
 for key in birthdayDictionary:
+    # Normalize case to include both upper and lower cases during search
     if search.lower() in key.lower():
         Match[key] = birthdayDictionary[key]
+        # Track the number of matches
         MatchCount += 1
 
+# Print the list of birthdays if matches are found
 if MatchCount == 0:
     print (f'\nNone of the name matches "{search}"\n')
 else:    
