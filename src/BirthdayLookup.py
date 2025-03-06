@@ -38,25 +38,25 @@ for elem in birthdayList:
 search = input("\nEnter a name to be search:  ")
 
 # Create varibles to store results
-Match = {}
-MatchCount = 0
+match = {}
+matchCount = 0
 
 # Store entry that matches user input (if any) in a second dictionary 
 for key in birthdayDictionary:
     # Normalize case to include both upper and lower cases during search
     if search.lower() in key.lower():
-        Match[key] = birthdayDictionary[key]
+        match[key] = birthdayDictionary[key]
         # Track the number of matches
-        MatchCount += 1
+        matchCount += 1
 
 # Print the list of birthdays if matches are found
-if MatchCount == 0:
+if matchCount == 0:
     print (f'\nNone of the name matches "{search}"\n')
 else:    
-    print (f'\n{MatchCount} friend(s) matches the name "{search}"\n')
+    print (f'\n{matchCount} friend(s) matches the name "{search}"\n')
     print ("-"*30,"     ","-"*15)
     print (f'{"Name":<30}',"     ",f'{"Birthday"}')
     print ("-"*30,"     ","-"*15)
-    for key in Match:
-        print (f'{key:<30}',"     ",f'{Match[key]}')
+    for key in match:
+        print (f'{key:<30}',"     ",f'{match[key]}')
     print ()
