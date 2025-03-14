@@ -1,8 +1,8 @@
 """
 Filename: BirthdayLookup.py
 Author: Gregory Lam
-Created: March 5, 2025
-Description: A program that help Lupe keep track of all of her friends' birthday.
+Created: March 13, 2025
+Description: A program that helps Lupe keep track of all of her friends' birthdays.
 """
 
 # Import statements
@@ -36,7 +36,7 @@ for elem in birthdayList:
 # Get user input
 search = input("\nEnter a name to be search:  ")
 
-# Create varibles to store results
+# Create variables to store results
 match = {}
 matchCount = 0
 
