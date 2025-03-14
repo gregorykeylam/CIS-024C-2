@@ -15,7 +15,6 @@ pathToFile = "../misc/Birthday.json"
 try:
     jsonFile = open(pathToFile, 'r')
 except OSError:
-    print("ERROR: Unable to open the file %s" % pathToFile)
     print(f'ERROR: Unable to open the file "{pathToFile}"')
 
 # Read the whole json file into a variable
